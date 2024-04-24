@@ -57,10 +57,11 @@ class WorkspaceItem(models.Model):
     company = fields.Selection(
         string='Company',
         selection=[
-            ('modulo', 'BETA WEB DESIGN, S.L.'),
-            ('kreare', 'Kreare Digital S.L.'),
-            ('novotic', 'NOVOTIC, S.L.'),
             ('sdi', 'Sistemas Digitales de Informática S.L.'),
+            ('modulo', 'BETA WEB DESIGN, S.L.'),
+            ('novotic', 'NOVOTIC, S.L.'),
+            ('sidoo', 'Sidoo Soluciones S.L.'),
+            ('kreare', 'Kreare Digital S.L.'),
         ],
         default='sdi',
     )
