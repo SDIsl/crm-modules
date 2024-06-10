@@ -60,10 +60,12 @@ class AccountMoveLineGroup(models.Model):
                     WHERE aa.code = (
                         SELECT MIN(code)
                         FROM account_account aa2
-                        WHERE aa2.group_id = aa.group_id AND aa2.company_id = aa.company_id
+                        WHERE aa2.group_id = aa.group_id 
+                        AND aa2.company_id = aa.company_id
                     )
                     GROUP BY aa.group_id, aa.company_id, aa.id, aa.code, aa.name
-                ) AS acc2 ON acc2.group_id = acc.group_id AND acc2.company_id = aml.company_id
+                ) AS acc2 ON acc2.group_id = acc.group_id 
+                AND acc2.company_id = aml.company_id
             )
         """)
         accounts = self.env['account.account']
