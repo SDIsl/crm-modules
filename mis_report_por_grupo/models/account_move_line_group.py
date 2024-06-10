@@ -1,7 +1,8 @@
 ###############################################################################
 # For copyright and license notices, see __manifest__.py file in root directory
 ###############################################################################
-from odoo import fields, models, tools, api
+
+from odoo import fields, models, tools
 
 
 class AccountMoveLineGroup(models.Model):
@@ -32,7 +33,6 @@ class AccountMoveLineGroup(models.Model):
     )
     partner_id = fields.Many2one('res.partner', string='Partner')
 
-    @api.model_cr
     def init(self):
         tools.drop_view_if_exists(self._cr, self._table)
         self._cr.execute("""
