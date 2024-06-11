@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_global_balance_all,access_account_global_balance_all,model_account_global_balance,base.group_user,1,0,0,0
+access_account_global_balance_accountant,access_account_global_balance_accountant,model_account_global_balance,account.group_account_user,1,1,1,1
