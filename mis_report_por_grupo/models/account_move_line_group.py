@@ -30,7 +30,15 @@ class AccountMoveLineGroup(models.Model):
         readonly=True,
         index=True,
     )
-    partner_id = fields.Many2one('res.partner', string='Partner')
+    partner_id = fields.Many2one(
+        comodel_name='res.partner',
+        string='Partner')
+    move_line_id = fields.Many2one(
+        'account.move.line',
+        string='Move Line')
+    move_id = fields.Many2one(
+        comodel_name='account.move',
+        string='Move')
 
     def init(self):
         tools.drop_view_if_exists(self._cr, self._table)
@@ -42,7 +50,7 @@ class AccountMoveLineGroup(models.Model):
                     acc2.name AS acc2_name,
                     acc.code AS original_code,
                     acc.name AS original_name,
-                    aml.id AS id,
+                    aml.id AS move_line_id,
                     aml.date AS date,
                     aml.debit AS debit,
                     aml.credit AS credit,
@@ -50,7 +58,8 @@ class AccountMoveLineGroup(models.Model):
                     acc.user_type_id AS user_type_id,
                     aml.reconciled AS reconciled,
                     aml.full_reconcile_id AS full_reconcile_id,
-                    aml.partner_id AS partner_id
+                    aml.partner_id AS partner_id,
+                    aml.move_id AS move_id
                 FROM account_move_line aml
                 JOIN account_account acc ON aml.account_id = acc.id
                 LEFT JOIN (
