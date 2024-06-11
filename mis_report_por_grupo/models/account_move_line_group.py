@@ -50,7 +50,8 @@ class AccountMoveLineGroup(models.Model):
                     acc2.name AS acc2_name,
                     acc.code AS original_code,
                     acc.name AS original_name,
-                    aml.id AS move_line_id,
+                    aml.id AS move_line_id,                    
+                    aml.id AS id,
                     aml.date AS date,
                     aml.debit AS debit,
                     aml.credit AS credit,
@@ -75,8 +76,12 @@ class AccountMoveLineGroup(models.Model):
                     aa.group_id, aa.company_id, aa.id, aa.code, aa.name
                 ) AS acc2 ON acc2.group_id = acc.group_id
                 AND acc2.company_id = aml.company_id
+                WHERE aml.parent_state != 'cancel'
             )
         """)
+        self.recreate_accounts()
+
+    def recreate_accounts(self):
         accounts = self.env['account.account']
         for acc in self.env['account.account'].search([
                 ('user_type_id', '!=', 'Current Year Earnings'),
@@ -84,10 +89,12 @@ class AccountMoveLineGroup(models.Model):
             if not accounts.search([
                     ('company_id', '=', acc.company_id.id),
                     ('code', '=', acc.group_id.code_prefix_start)]):
-                acc.copy({
+                values = {
                     'company_id': acc.company_id.id,
                     'name': acc.group_id.name or '',
                     'code': acc.group_id.code_prefix_start,
                     'deprecated': True,
-                    'asset_profile_id': False,
-                })
+                }
+                if 'asset_profile_id' in acc._fields:
+                    values['asset_profile_id'] = False
+                acc.copy(values)
