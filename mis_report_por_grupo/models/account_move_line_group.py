@@ -50,7 +50,7 @@ class AccountMoveLineGroup(models.Model):
                     acc2.name AS acc2_name,
                     acc.code AS original_code,
                     acc.name AS original_name,
-                    aml.id AS move_line_id,                    
+                    aml.id AS move_line_id,
                     aml.id AS id,
                     aml.date AS date,
                     aml.debit AS debit,
