@@ -1,0 +1,50 @@
+<!-- account_global_balance_views.xml -->
+<odoo>
+    <record id="view_account_global_balance_tree" model="ir.ui.view">
+        <field name="name">account.global.balance.tree</field>
+        <field name="model">account.global.balance</field>
+        <field name="arch" type="xml">
+            <tree string="Saldos acumulados mes" create="0">
+                <field name="account_id"/>
+                <field name="month"/>
+                <field name="balance" avg="Promedio"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_account_global_balance_form" model="ir.ui.view">
+        <field name="name">account.global.balance.form</field>
+        <field name="model">account.global.balance</field>
+        <field name="arch" type="xml">
+            <form string="Account Global Balance">
+                <sheet>
+                    <group>
+                        <field name="account_id"/>
+                        <field name="month"/>
+                        <field name="balance"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_account_global_balance" model="ir.actions.act_window">
+        <field name="name">Account Global Balance</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">account.global.balance</field>
+        <field name="view_mode">tree,pivot,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Account Global Balance
+            </p><p>
+                Here, you can create and manage your Account Global Balances.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_account_global_balance" name="Account Global Balance"
+              parent="account.menu_finance_entries_accounting_miscellaneous" sequence="10"
+              action="action_account_global_balance"/>
+
+</odoo>
