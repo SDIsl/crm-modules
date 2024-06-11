@@ -1,7 +1,6 @@
 ###############################################################################
 # For copyright and license notices, see __manifest__.py file in root directory
 ###############################################################################
-
 from odoo import fields, models, tools
 
 
@@ -48,7 +47,7 @@ class AccountMoveLineGroup(models.Model):
                     aml.debit AS debit,
                     aml.credit AS credit,
                     aml.company_id AS company_id,
-                    aml.user_type_id AS user_type_id,
+                    acc.user_type_id AS user_type_id,
                     aml.reconciled AS reconciled,
                     aml.full_reconcile_id AS full_reconcile_id,
                     aml.partner_id AS partner_id
@@ -75,11 +74,11 @@ class AccountMoveLineGroup(models.Model):
                 ('group_id', '!=', False),]):
             if not accounts.search([
                     ('company_id', '=', acc.company_id.id),
-                    ('code', '=', acc.group_id.code_prefix)]):
+                    ('code', '=', acc.group_id.code_prefix_start)]):
                 acc.copy({
                     'company_id': acc.company_id.id,
                     'name': acc.group_id.name or '',
-                    'code': acc.group_id.code_prefix,
+                    'code': acc.group_id.code_prefix_start,
                     'deprecated': True,
                     'asset_profile_id': False,
                 })
