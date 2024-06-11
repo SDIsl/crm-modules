@@ -18,7 +18,7 @@
 ###############################################################################
 {
     'name': 'Listado con balance acumulado por cuenta',
-    'summary': 'Vista para sacar listado de saldos acumulados mensuales por cuenta.',
+    'summary': 'Vista para listar de saldos acumulados por cuenta.',
     'author': 'Sergio Lop Sanz',
     'website': 'https://www.sidoo.es',
     'license': 'AGPL-3',
