@@ -38,9 +38,6 @@ class MailMessage(models.Model):
     def create(self, vals):
         res = super().create(vals)
         for rec in res:
-            if rec.subtype_id != self.env.ref('mail.mt_note'):
-                continue
-
             partner_ids = rec.partner_ids.ids
             user_ids = self.env['res.users'].search([
                 ('partner_id', 'in', partner_ids),
