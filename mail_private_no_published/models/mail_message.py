@@ -38,6 +38,16 @@ class MailMessage(models.Model):
     def create(self, vals):
         res = super().create(vals)
         for rec in res:
-            if rec.subtype_id == self.env.ref('mail.mt_note'):
-                rec.website_published = False
+            if rec.subtype_id != self.env.ref('mail.mt_note'):
+                continue
+
+            partner_ids = rec.partner_ids.ids
+            user_ids = self.env['res.users'].search([
+                ('partner_id', 'in', partner_ids),
+                ('active', 'in', [True, False]),
+            ])
+            customer_users = user_ids.filtered(lambda user: user.has_group('base.group_portal'))
+            if customer_users or (partner_ids and not user_ids):
+                continue
+            rec.website_published = False
         return res
