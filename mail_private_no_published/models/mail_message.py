@@ -43,12 +43,21 @@ class MailMessage(models.Model):
                 continue
 
             partner_ids = rec.partner_ids.ids
-            user_ids = self.env['res.users'].search([
+            user_ids = self.env['res.users'].sudo().search([
                 ('partner_id', 'in', partner_ids),
                 ('active', 'in', [True, False]),
             ])
             customer_users = user_ids.filtered(lambda user: user.has_group('base.group_portal'))
             if customer_users or (partner_ids and not user_ids):
                 continue
+
+            author_id = rec.author_id
+            user = self.env['res.users'].sudo().search([
+                ('partner_id', '=', author_id.id),
+                ('active', 'in', [True, False]),
+            ])
+            if not user or (user and not user.has_group('base.group_user')):
+                continue
+
             rec.website_published = False
         return res
