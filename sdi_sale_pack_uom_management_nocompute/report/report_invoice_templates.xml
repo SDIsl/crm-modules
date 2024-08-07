@@ -27,15 +27,17 @@
         </xpath>
 
         <xpath expr="//td[span[@t-field='l.quantity']]" position="replace">
-            <td class="text-right">
-                <t t-if="l.uom_id.factor_inv > 1">
-                    <t t-set="qty" t-value="l.quantity*l.uom_id.factor_inv"/>
+            <t t-if="l.uom_id.factor_inv > 1">
+                <t t-set="qty" t-value="l.quantity*l.uom_id.factor_inv"/>
+                <td class="text-right">
                     <span><t t-esc="qty"/></span>
-                </t>
-                <t t-else="">
-                    <span t-esc="l.quantity"/>
-                </t>
-            </td>
+                </td>
+            </t>
+            <t t-else="">
+                <td class="text-right">
+                    <span t-field="l.quantity"/>
+                </td>
+            </t>
         </xpath>
 
         <xpath expr="//td[span[@t-field='l.price_unit']]" position="replace">
