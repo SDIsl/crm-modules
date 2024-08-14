@@ -4,9 +4,9 @@
         <xpath expr="//td/t[@t-if='l.uom_id.factor_inv &gt; 1']/t[@t-set='qty']" position="replace">
             <t t-set="qty" t-value="lines_group['quantity']" />
         </xpath>
-        <xpath expr="//t[@t-if='l.uom_id.factor_inv &gt; 1']/t[@t-value='l.quantity*l.uom_id.factor_inv']/../../t[2]" position="replace">
-        </xpath>
         <xpath expr="//t[@t-if='l.uom_id.factor_inv &gt; 1']/t[@t-value='l.quantity*l.uom_id.factor_inv']/.." position="replace">
+        </xpath>
+        <xpath expr="//td/span[contains(@t-esc, 'lines_group[')]/../.." position="replace">
             <td class="text-right">
                 <span t-esc="lines_group['quantity'] * l.uom_id.factor_inv" t-options="{'widget': 'float', 'decimal_precision': 'Product Unit of Measure'}" />
             </td>
