@@ -30,6 +30,7 @@
     ],
     'data': [
         'views/account_payment_order_views.xml',
+        'wizards/account_payment_line_create_view.xml',
         'report/print_account_payment_order_document.xml',
     ],
 }

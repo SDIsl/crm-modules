@@ -16,6 +16,16 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: payment_order_transactions_summary
+#: model:ir.model.fields,field_description:payment_order_transactions_summary.field_account_payment_line_create__allow_normal
+msgid "Allow Normal Move Lines"
+msgstr "Incluir apuntes normales"
+
+#. module: payment_order_transactions_summary
+#: model:ir.model.fields,help:payment_order_transactions_summary.field_account_payment_line_create__allow_normal
+msgid "Allow normal move lines (No Blocked or Returned)"
+msgstr "Incluye apuntes que no sean en litigio o devueltos"
+
+#. module: payment_order_transactions_summary
 #: model:ir.model.fields,field_description:payment_order_transactions_summary.field_account_payment_line__invoice_date
 #: model_terms:ir.ui.view,arch_db:payment_order_transactions_summary.print_account_payment_order_document_sdi
 msgid "Invoice date"
