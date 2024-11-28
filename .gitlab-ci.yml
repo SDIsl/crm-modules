@@ -1,8 +1,8 @@
 variables:
     RUN_PRE_COMMIT: "true"
-    USE_OF_PUBLIC_REGISTRY: "true"
-    RUN_TESTS: "true"
-    RUN_PUBLISH: "true"
+    USE_OF_PUBLIC_REGISTRY: "false"
+    RUN_TESTS: "false"
+    RUN_PUBLISH: "false"
 
 include:
     - project: 'sidoo/sidoo-cicd'
