@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+    <record id="disable_vat_check" model="ir.config_parameter">
+        <field name="key">partner_disable_vat_check_option.disable_vat_check</field>
+        <field name="value">True</field>
+    </record>
+</odoo>

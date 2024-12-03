@@ -18,21 +18,21 @@
 #
 ###############################################################################
 {
-    'name': 'CRM Lead Stage',
-    'summary': 'This module adds stages in the leads.',
-    'author': 'Jorge Quinteros, Sidoo Soluciones S.L.',
-    'website': 'https://sidoo.es',
-    'license': 'AGPL-3',
-    'category': 'CRM',
-    'version': '17.0.1.0.0',
-    'depends': [
-        'crm',
-        'sale_crm',
+    "name": "CRM Lead Stage",
+    "summary": "This module adds stages in the leads.",
+    "author": "Jorge Quinteros, Sidoo Soluciones S.L.",
+    "website": "https://sidoo.es",
+    "license": "AGPL-3",
+    "category": "CRM",
+    "version": "17.0.1.0.0",
+    "depends": [
+        "crm",
+        "sale_crm",
     ],
-    'data': [
-        'views/crm_lead_stage_views.xml',
-        'views/crm_lead_views.xml',
-        'security/ir.model.access.csv',
+    "data": [
+        "views/crm_lead_stage_views.xml",
+        "views/crm_lead_views.xml",
+        "security/ir.model.access.csv",
     ],
-    'application': True,
+    "application": True,
 }

@@ -5,9 +5,9 @@ from odoo import fields, models
 
 
 class ResConfigSettings(models.TransientModel):
-    _inherit = 'res.config.settings'
+    _inherit = "res.config.settings"
 
     disable_vat_check = fields.Boolean(
-        string='Disable VAT validation',
+        string="Disable VAT validation",
         readonly=False,
     )

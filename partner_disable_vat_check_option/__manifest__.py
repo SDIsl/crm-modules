@@ -18,13 +18,16 @@
 #
 ###############################################################################
 {
-    'name': 'Partner Disable VAT Check Option',
-    'version': '17.0.1.0.0',
-    'summary': 'Creates a new option to disable the VAT check on partners.',
-    'author': 'Valentín Georgian Castravete, SDi Digital Group',
-    'website': 'https://www.sdi.es/odoo-cloud/',
-    'license': 'AGPL-3',
-    'category': 'Custom',
-    'depends': ['base_vat'],
-    'data': ['views/res_config_settings_views.xml'],
+    "name": "Partner Disable VAT Check Option",
+    "version": "17.0.1.0.0",
+    "summary": "Creates a new option to disable the VAT check on partners.",
+    "author": "Valentín Georgian Castravete, SDi Digital Group",
+    "website": "https://www.sdi.es/odoo-cloud/",
+    "license": "AGPL-3",
+    "category": "Custom",
+    "depends": ["base_vat"],
+    "data": [
+        "data/ir_config_parameter.xml",
+        "views/res_config_settings_views.xml"
+    ],
 }
