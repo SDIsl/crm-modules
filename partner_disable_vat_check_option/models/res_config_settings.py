@@ -9,5 +9,5 @@ class ResConfigSettings(models.TransientModel):
 
     disable_vat_check = fields.Boolean(
         string="Disable VAT validation",
-        readonly=False,
+        config_parameter="partner_disable_vat_check_option.disable_vat_check",
     )
