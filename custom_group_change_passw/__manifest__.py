@@ -26,7 +26,7 @@ it disables the option to change passwords from the login reset password feature
     'website': 'http://sidoo.es',
     'license': 'AGPL-3',
     'category': 'Customize',
-    'version': '16.0.1.0.0',
+    'version': '17.0.1.0.0',
     'depends': [
        'base',
        'hr',

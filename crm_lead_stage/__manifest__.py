@@ -24,7 +24,7 @@
     'website': 'https://sidoo.es',
     'license': 'AGPL-3',
     'category': 'CRM',
-    'version': '16.0.1.0.0',
+    'version': '17.0.1.0.0',
     'depends': [
         'crm',
         'sale_crm',
