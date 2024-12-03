@@ -9,7 +9,7 @@
                          help="Disables all VAT validation."
                          company_dependent="1"
                          title="Values set here are company-specific."
-                         invisible="not group_multi_company">
+                         groups="base.group_multi_company">
                     <field name="disable_vat_check"/>
                 </setting>
             </setting>
